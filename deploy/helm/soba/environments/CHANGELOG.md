@@ -1,3 +1,10 @@
+## soba-config [1.1.0](https://github.com/ichinna/release/compare/soba-config@1.0.1...soba-config@1.1.0) (2022-12-14)
+
+
+### Features
+
+* ES Stage 0 ([7711175](https://github.com/ichinna/release/commit/77111759b9b5cf449d366abb17485de91599192d))
+
 ## soba-config [1.0.1](https://github.com/ichinna/release/compare/soba-config@1.0.0...soba-config@1.0.1) (2022-12-14)
 
 

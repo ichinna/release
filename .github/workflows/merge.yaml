@@ -1,0 +1,31 @@
+name: merge
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: "18"
+  GITHUB_USERNAME: ${{ secrets.GH_ES_USERNAME }}
+  GITHUB_TOKEN: ${{ secrets.GH_ES_TOKEN }}
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ env.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm install
+      - name: Release
+        run: npm run release
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

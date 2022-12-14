@@ -26,18 +26,3 @@ jobs:
         run: npm run release
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
-    if: ${{ github.ref == 'refs/heads/main' }}
-    runs-on: ubuntu-20.04
-    needs: release
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: davidB/rust-cargo-make@v1
-      - uses: actions/checkout@v3
-      - run: git pull
-      - name: Trigger snap0 deployment
-        shell: bash
-        run: |
-          cargo make deploy-trigger --env snap0

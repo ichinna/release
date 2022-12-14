@@ -1,0 +1,27 @@
+{
+    "name": "root",
+    "private": true,
+    "devDependencies": {
+      "conventional-changelog-conventionalcommits": "5.0.0",
+      "semantic-release": "19.0.5",
+      "@codedependant/semantic-release-docker": "4.1.0",
+      "semantic-release-helm": "2.2.0",
+      "@semantic-release/changelog": "6.0.1",
+      "@semantic-release/commit-analyzer": "9.0.2",
+      "@semantic-release/exec": "6.0.3",
+      "@semantic-release/git": "10.0.1",
+      "@semantic-release/github": "8.0.6",
+      "@semantic-release/npm": "9.0.1",
+      "@semantic-release/release-notes-generator": "10.0.3",
+      "@qiwi/multi-semantic-release": "6.5.1",
+      "snyk": "1.1009.0"
+    },
+    "scripts": {
+      "clean": "rm -rf ./node_modules",
+      "release": "multi-semantic-release --execasync"
+    },
+    "workspaces": [
+      "deploy/helm/soba/environments"
+    ]
+  }
+  

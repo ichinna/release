@@ -1,0 +1,46 @@
+branches:
+  - name: "master"
+    prerelease: false
+  - name: "main"
+    prerelease: false
+  - name: "alpha"
+    prerelease: true
+plugins:
+  - - "@semantic-release/commit-analyzer"
+    - preset: "angular"
+      releaseRules:
+        - { type: "build", release: "patch" }
+        - { type: "ci", release: "patch" }
+        - { type: "docs", release: false }
+        - { type: "perf", release: false }
+        - { type: "refactor", release: "patch" }
+        - { type: "style", release: false }
+        - { type: "test", release: "patch" }
+  - - "@semantic-release/changelog"
+    - changelogFile: "CHANGELOG.md"
+  - - "@semantic-release/release-notes-generator"
+    - preset: "conventionalcommits"
+      presetConfig:
+        types:
+          - { type: "build", hidden: false, section: "Build System" }
+          - { type: "ci", hidden: false, section: "Continuous Integration" }
+          - { type: "chore", hidden: true, section: "Miscellaneous Chores" }
+          - { type: "docs", hidden: true, section: "Documentation" }
+          - { type: "feat", hidden: false, section: "Features" }
+          - { type: "feature", hidden: false, section: "Features" }
+          - { type: "fix", hidden: false, section: "Bug Fixes" }
+          - { type: "style", hidden: true, section: "Styles" }
+          - { type: "refactor", hidden: false, section: "Code Refactoring" }
+          - { type: "perf", hidden: true, section: "Performance Improvements" }
+          - { type: "test", hidden: false, section: "Tests" }
+  - - "@semantic-release/npm"
+    - npmPublish: false
+      tarballDir: "dist"
+  - - "@semantic-release/github"
+    - assets: "dist/*.tgz"
+      successComment: false
+  - - "@semantic-release/git"
+    - assets:
+        - "package.json"
+        - "CHANGELOG.md"
+      message: "chore(release): soba-config ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"

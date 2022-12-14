@@ -1,3 +1,10 @@
+## soba-config [1.0.1](https://github.com/ichinna/release/compare/soba-config@1.0.0...soba-config@1.0.1) (2022-12-14)
+
+
+### Bug Fixes
+
+* updates to configs ([661d7d8](https://github.com/ichinna/release/commit/661d7d8096a550435d303e61a47de0ded8b21f15))
+
 ## soba-config 1.0.0 (2022-12-14)
 
 

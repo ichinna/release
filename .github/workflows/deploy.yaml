@@ -1,22 +1,21 @@
 name: deployment
-
 on:
   deployment:
     branches:
-      - main
+    - main
 
 
 jobs:
   deploy:
     runs-on: ubuntu-20.04
-      defaults:
-        run:
-          shell: bash
-      steps:
-        - name: checkout_repository
-          uses: actions/checkout@v3
-        
-        - name: HELM TEMPLATE
-          run: helm template hello-world
-          working-directory: charts
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: checkout_repository
+        uses: actions/checkout@v3
+      
+      - name: HELM TEMPLATE
+        run: helm template hello-world
+        working-directory: charts
   

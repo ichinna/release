@@ -12,6 +12,9 @@ jobs:
       run:
         shell: bash
     steps:
+      - name: LOG
+        run: echo PAYLOAD="${{ github.event.deployment.payload }}"
+
       - name: checkout_repository
         uses: actions/checkout@v3
       
